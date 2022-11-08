@@ -5,10 +5,10 @@ import User from './components/User';
 import AddAdmin from './components/AddAdmin';
 import AdminLogin from "./components/AdminLogin";
 import {BrowserRouter, Router, Routes, Route} from 'react-router-dom';
-
+import './App.css'
 function App() {
     return (
-        <div>
+        <div className='Container'>
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<UserSelect />} />

@@ -1,0 +1,86 @@
+.create-admin-container{
+    display: flex;
+    padding-top: 30px;
+    justify-content: center;
+    width: 25%;
+    min-width: 300px;
+    min-height: 300px;
+    background-color: rgba(255, 255, 255, 0.699);
+    border-radius: 10px;
+    margin-top: 10%;
+    box-shadow: 2px 3px 3px 2px #53535360;
+}
+.crate-admin-header-area{
+    border-top:none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid dodgerblue;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.create-admin-form{
+    width: 80%;
+}
+.create-admin-header-icon{
+    font-size: 36px;
+    margin-right: 10px;
+}
+.create-admin-header{
+    font-size: 24px;
+    font-weight: bold;
+}
+.create-form-input-container{
+    margin-top: 30px;
+}
+.create-form-input-area{
+    display: flex;
+    align-items: center;
+}
+.create-form-input{
+    background-color: transparent;
+    border-top:none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid black;
+    width: 100%;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+.create-form-input:focus{
+    outline: none;
+    border-bottom: 3px solid dodgerblue;
+}
+.create-form-input-icon{
+    margin-left: 10px;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+.create-form-button-area{
+    display: flex;
+    justify-content: center;
+}
+.create-form-button{
+    border:2px solid dodgerblue;
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 20px;
+    padding-left: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: dodgerblue;
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+.create-form-button:hover{
+    background-color: dodgerblue;
+    color: white;
+}
+.create-form-button-icon{
+    font-size: 20px;
+    margin-left: 5px;
+}

@@ -1,6 +1,9 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-
+import './styles/addadmin.css'
+import { MdPersonAddAlt1 } from 'react-icons/md';
+import { FaUserAlt, FaLock ,FaSave} from 'react-icons/fa';
+import { IoMail } from 'react-icons/io5';
 function AddAdmin() {
 
     const saveNewAdmin = () => {
@@ -19,44 +22,48 @@ function AddAdmin() {
 
         axios.post("http://localhost:8080/add_admin", newAdmin)
             .then((response) => {
-                    console.log(response);
-                }
+                console.log(response);
+            }
             )
     }
 
     return (
-        <div className={"container bg-blue-200 min-h-screen flex flex-col items-center min-w-full"}>
-            <div>
-                <h1 className={"text-2xl font-bold"}>Admin Ekle</h1>
+        <div className='create-admin-container'>
+            <div className='create-admin-form'>
+                <div className='crate-admin-header-area'>
+                    <MdPersonAddAlt1 className='create-admin-header-icon' />
+                    <h1 className='create-admin-header'>ADMİN OLUŞTUR</h1>
+                </div>
+                <div className='create-form-input-container'>
+                    <div className='create-form-input-area'>
+                        <input id='username' className='create-form-input' />
+                        <FaUserAlt className='create-form-input-icon'/>
+                    </div>
+                    <div className='create-form-input-area'>
+                        <input id='password' className='create-form-input' />
+                        <FaLock className='create-form-input-icon'/>
+                    </div>
+                    <div className='create-form-input-area'>
+                        <input id='password-again' className='create-form-input' />
+                        <FaLock className='create-form-input-icon'/>
+                    </div>
+                    <div className='create-form-input-area'>
+                        <input id='e-mail' className='create-form-input' />
+                        <IoMail className='create-form-input-icon'/>
+                    </div>
+                </div>
+                <div className='create-form-button-area'>
+                    <button
+                        type="submit"
+                        className='create-form-button'
+                        onClick={() => {
+                            saveNewAdmin();
+                        }}
+                    >
+                        Kaydet<FaSave className='create-form-button-icon'/>
+                    </button>
+                </div>
             </div>
-            <div className={"flex flex-col"}>
-                <label className={"text-lg font-bold"}>Kullanıcı Adı</label>
-                <input id='username' className={"border border-gray-300 rounded p-2"}/>
-            </div>
-            <div className={"flex flex-col"}>
-                <label className={"text-lg font-bold"}>Şifre</label>
-                <input id='password' className={"border border-gray-300 rounded p-2"}/>
-            </div>
-            <div className={"flex flex-col"}>
-                <label className={"text-lg font-bold"}>Şifre Tekrar</label>
-                <input id='password-again' className={"border border-gray-300 rounded p-2"}/>
-            </div>
-            <div className={"flex flex-col"}>
-                <label className={"text-lg font-bold"}>E-Posta</label>
-                <input id='e-mail' className={"border border-gray-300 rounded p-2"}/>
-            </div>
-            <div className={"flex flex-col"}>
-                <button
-                    type="submit"
-                    className="bg-green-400 text-white p-2 rounded-lg mt-5"
-                    onClick={() => {
-                        saveNewAdmin();
-                    }}
-                >
-                    Kaydet
-                </button>
-            </div>
-
         </div>
     );
 }

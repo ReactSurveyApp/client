@@ -1,0 +1,83 @@
+
+.admin-login-container{
+    display: flex;
+    padding-top: 30px;
+    justify-content: center;
+    width: 25%;
+    min-width: 300px;
+    min-height: 300px;
+    background-color: rgba(255, 255, 255, 0.699);
+    border-radius: 10px;
+    margin-top: 10%;
+    box-shadow: 2px 3px 3px 2px #53535360;
+}
+.login-form-header-area{
+    border-top:none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid dodgerblue;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login-form-header-icon{
+    font-size: 36px;
+    margin-right: 10px;
+}
+.login-form-header{
+    font-size: 24px;
+    font-weight: bold;
+}
+.login-form-input-container{
+    margin-top: 30px;
+}
+.login-form-input-area{
+    display: flex;
+    align-items: center;
+}
+.login-form-input{
+    background-color: transparent;
+    border-top:none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid black;
+    width: 100%;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+.login-form-input:focus{
+    outline: none;
+    border-bottom: 3px solid dodgerblue;
+}
+.login-form-input-icon{
+    margin-left: 10px;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+.login-form-button-area{
+    display: flex;
+    justify-content: center;
+}
+.login-form-button{
+    border:2px solid dodgerblue;
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 20px;
+    padding-left: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: dodgerblue;
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
+}
+.login-form-button:hover{
+    background-color: dodgerblue;
+    color: white;
+}
+.login-form-button-icon{
+    font-size: 28px;
+    margin-left: 5px;
+}
