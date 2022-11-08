@@ -8,10 +8,11 @@ import { ImRadioChecked } from "react-icons/im";
 const Question = () => {
 
     const [questions, setQuestions] = useState([]);
+    const [questionId, setQuestionId] = useState(1);
 
     const addQuestion = () => {
         const newQuestion = {
-            id: questions.length + 1,
+            id: questionId,
             question: '',
             answers: [],
         };
@@ -84,6 +85,7 @@ const Question = () => {
                     className="add-new-question-button"
                     onClick={() => {
                         addQuestion();
+                        setQuestionId(questionId + 1);
                     }}>
                     <IoAddCircleOutline className='add-new-question-button-icon' /> Yeni Soru Oluştur
                 </button>
