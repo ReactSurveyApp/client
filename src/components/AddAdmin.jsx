@@ -4,6 +4,7 @@ import './styles/addadmin.css'
 import { MdPersonAddAlt1 } from 'react-icons/md';
 import { FaUserAlt, FaLock ,FaSave} from 'react-icons/fa';
 import { IoMail } from 'react-icons/io5';
+
 function AddAdmin() {
 
     const saveNewAdmin = () => {
@@ -36,19 +37,19 @@ function AddAdmin() {
                 </div>
                 <div className='create-form-input-container'>
                     <div className='create-form-input-area'>
-                        <input id='username' className='create-form-input' />
+                        <input id='username' type='text' className='create-form-input'/>
                         <FaUserAlt className='create-form-input-icon'/>
                     </div>
                     <div className='create-form-input-area'>
-                        <input id='password' className='create-form-input' />
+                        <input id='password' type='password' className='create-form-input'/>
                         <FaLock className='create-form-input-icon'/>
                     </div>
                     <div className='create-form-input-area'>
-                        <input id='password-again' className='create-form-input' />
+                        <input id='password-again' type='password' className='create-form-input'/>
                         <FaLock className='create-form-input-icon'/>
                     </div>
                     <div className='create-form-input-area'>
-                        <input id='e-mail' className='create-form-input' />
+                        <input id='e-mail' type='text' className='create-form-input'/>
                         <IoMail className='create-form-input-icon'/>
                     </div>
                 </div>

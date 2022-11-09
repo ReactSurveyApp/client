@@ -4,21 +4,35 @@ import './styles/adminlogin.css'
 import { MdAdminPanelSettings } from 'react-icons/md';
 import { FaUserAlt, FaLock } from 'react-icons/fa';
 import { IoLogInSharp } from 'react-icons/io5';
+import { Route } from 'react-router-dom';
+import Question from './Question';
 function AdminLogin() {
 
+    
     const sendLoginData = () => {
         let username = document.getElementById('username').value;
         let password = document.getElementById('password').value;
 
-        let loginData = {
-            username: username,
-            password: password,
-        }
-        axios.post('http://localhost:8080/admin-login', loginData)
+        if(username !== null && username !== "" && password !== null && password !== ""){
+            let loginData = {
+                username: username,
+                password: password,
+            }
+            axios.post('http://localhost:8080/admin-login', loginData)
             .then((response) => {
-                console.log(response);
+                console.log(response.data);
+                if(response.data==="success"){
+                    // this.props.history.push("/admin-panel");
+                    <Route path="admin-panel" element={<Question />} />
+                }else{
+                    alert("Kayıtlı kullanıcı bulunamadı!!!")
+                }
             }
             )
+        }else{
+            alert("Lütden alanları boş bırakmayınız.")
+        }
+        
     }
 
     return (

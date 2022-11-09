@@ -4,15 +4,14 @@ import axios from 'axios';
 import './styles/question.css'
 import { IoSaveSharp, IoAddCircleOutline, IoTrash } from "react-icons/io5";
 import { ImRadioChecked } from "react-icons/im";
-
+import { v4 as uuidv4 } from 'uuid';
 const Question = () => {
 
     const [questions, setQuestions] = useState([]);
-    const [questionId, setQuestionId] = useState(1);
 
     const addQuestion = () => {
         const newQuestion = {
-            id: questionId,
+            id: questions.length + 1,
             question: '',
             answers: [],
         };
@@ -64,17 +63,15 @@ const Question = () => {
             })
         })
     }
-
     async function postQuestionData(e) {
+        const guid = uuidv4();
         e.preventDefault();
         try {
             await axios.post("http://localhost:8080/question_data", { questionsData });
         } catch (err) {
             console.error("HATA MESAJI : " + err.message);
-
         }
     }
-    
     return (
         <div className="survay-container">
             <div className="survay-header">
@@ -85,7 +82,6 @@ const Question = () => {
                     className="add-new-question-button"
                     onClick={() => {
                         addQuestion();
-                        setQuestionId(questionId + 1);
                     }}>
                     <IoAddCircleOutline className='add-new-question-button-icon' /> Yeni Soru Oluştur
                 </button>
