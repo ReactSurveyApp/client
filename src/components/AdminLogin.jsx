@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import axios from 'axios';
 import './styles/adminlogin.css'
 import { MdAdminPanelSettings } from 'react-icons/md';
@@ -6,9 +6,13 @@ import { FaUserAlt, FaLock } from 'react-icons/fa';
 import { IoLogInSharp } from 'react-icons/io5';
 import { Route } from 'react-router-dom';
 import Question from './Question';
+import UserSelect from './UserSelect';
+import {useNavigate} from 'react-router-dom';
 function AdminLogin() {
 
-    
+    const navigate = useNavigate()
+    const handleOnClick = useCallback(() => navigate('/user-select', {replace: true}), [navigate]);
+
     const sendLoginData = () => {
         let username = document.getElementById('username').value;
         let password = document.getElementById('password').value;
@@ -23,7 +27,7 @@ function AdminLogin() {
                 console.log(response.data);
                 if(response.data==="success"){
                     // this.props.history.push("/admin-panel");
-                    <Route path="admin-panel" element={<Question />} />
+                    handleOnClick();
                 }else{
                     alert("Kayıtlı kullanıcı bulunamadı!!!")
                 }
@@ -55,9 +59,8 @@ function AdminLogin() {
                 <div className='login-form-button-area'>
                     <button
                         className='login-form-button'
-                        onClick={() => {
-                            sendLoginData();
-                        }}
+                        type="button"
+                        onClick={sendLoginData}
                     >
                         Giriş Yap<IoLogInSharp className='login-form-button-icon' />
                     </button>

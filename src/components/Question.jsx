@@ -4,7 +4,7 @@ import axios from 'axios';
 import './styles/question.css'
 import { IoSaveSharp, IoAddCircleOutline, IoTrash } from "react-icons/io5";
 import { ImRadioChecked } from "react-icons/im";
-import { v4 as uuidv4 } from 'uuid';
+
 const Question = () => {
 
     const [questions, setQuestions] = useState([]);
@@ -84,7 +84,6 @@ const Question = () => {
         }
     }
     async function postQuestionData(e) {
-        const guid = uuidv4();
         e.preventDefault();
         try {
             await axios.post("http://localhost:8080/question_data", { questionsData });
@@ -92,7 +91,7 @@ const Question = () => {
             console.error("HATA MESAJI : " + err.message);
         }
     }
-    
+
     return (
         <div className="survay-container">
             <div className="survay-header">
@@ -187,7 +186,7 @@ const Question = () => {
                             saveSurveyForm();
                         }}
                     >
-                        < IoSaveSharp className='submit-button-icon' />   Anketi Kaydet
+                        <IoSaveSharp className='submit-button-icon' />   Anketi Kaydet
                     </button>
                 </form>
 
