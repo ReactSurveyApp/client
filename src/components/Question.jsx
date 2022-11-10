@@ -92,6 +92,7 @@ const Question = () => {
             console.error("HATA MESAJI : " + err.message);
         }
     }
+    
     return (
         <div className="survay-container">
             <div className="survay-header">
