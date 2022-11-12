@@ -29,6 +29,12 @@ function UserSelect() {
             >
                 ADMİN LOGIN
             </Link>
+            <Link
+                className={"bg-blue-400 text-white p-2 rounded-lg mt-5"}
+                to="/anket-listele"
+            >
+                ANKETLER
+            </Link>
 
         </div>
     );

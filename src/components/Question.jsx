@@ -11,7 +11,6 @@ const Question = () => {
     const [questionId, setQuestionId] = useState([String(Date.now())]);
     const [answerId, setAnswerId] = useState([String(Date.now() + 1)]);
 
-
     const addQuestion = () => {
 
         setQuestionId([...questionId, String(Date.now())]);
@@ -60,7 +59,6 @@ const Question = () => {
 
     let questionsData = [];
     const saveSurveyForm = () => {
-        console.log(questions)
 
         questionsData = questions;
 
@@ -82,7 +80,9 @@ const Question = () => {
         catch (err){
             console.log("HATA OLUŞTU. HATA MESAJI : " + err)
         }
+
     }
+    
     async function postQuestionData(e) {
         e.preventDefault();
         try {
@@ -90,12 +90,26 @@ const Question = () => {
         } catch (err) {
             console.error("HATA MESAJI : " + err.message);
         }
+        let surveyName = document.getElementById("survey-name").value;
+
+        try {
+            await axios.post("http://localhost:8080/survey_name", {surveyName}); 
+        }
+        catch (err) {
+            console.log("hata oluştu : " + err.message);
+        }
     }
 
     return (
         <div className="survay-container">
-            <div className="survay-header">
+            <div className="survay-header flex flex-col items-center">
                 <h1 >ANKET OLUŞTUR</h1>
+                <input
+                    className="mt-2 mb-1 p-3 border border-black border-solid rounded"
+                    type="text"
+                    id="survey-name"
+                    placeholder="Anket adını girin..."
+                />
             </div>
             <div className='add-new-question-button-area'>
                 <button id="btn-question-ekle"
@@ -172,7 +186,6 @@ const Question = () => {
                             </button>
                         </div>
                     </div>
-
                 ))}
             </div>
             <div className='submit-button-area'>

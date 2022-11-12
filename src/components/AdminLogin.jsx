@@ -29,7 +29,7 @@ function AdminLogin() {
                     // this.props.history.push("/admin-panel");
                     handleOnClick();
                 }else{
-                    alert("Kayıtlı kullanıcı bulunamadı!!!")
+                    alert("Kayıtlı kullanıcı bulunamadı!!!") // bunu aşağıda kontrol edip duruma göre kırmızı uyarı yazısı çıakrılacak
                 }
             }
             )
