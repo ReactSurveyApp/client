@@ -7,6 +7,7 @@ import AdminLogin from "./components/AdminLogin";
 import Surveys from './components/Surveys';
 import {BrowserRouter, Router, Routes, Route} from 'react-router-dom';
 import './App.css'
+import SurveyUserPanel from './components/SurveyUserPanel';
 function App() {
     return (
         <div className='Container'>
@@ -18,6 +19,7 @@ function App() {
                 <Route path="add-admin" element={<AddAdmin />} />
                 <Route path="user-select" element={<UserSelect />} />
                 <Route path="anket-listele" element={<Surveys />} />
+                <Route path="survey-input/*" element={<SurveyUserPanel />} />
             </Routes>
         </BrowserRouter>
         </div>
