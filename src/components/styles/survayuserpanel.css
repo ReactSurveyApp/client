@@ -1,0 +1,58 @@
+.user-survay-container{
+    width: 60%;
+    min-width: 350px;
+    background-color: white;
+    box-shadow: 2px 3px 3px 2px #53535360;
+    margin-bottom: 40px;
+}
+.survay-title-area{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid dodgerblue;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 20px 0px 30px;
+    padding-bottom: 10px;
+}
+.survay-title{
+    font-size: 24px;
+    font-weight: 600;
+    
+}
+.survay-questions-container{
+    display: flex;
+    justify-content: center;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+.survay-questions-area{
+    width: 100%;
+    padding: 15px;
+}
+.survay-question-and-answer-area{
+    box-shadow: 2px 0px 5px 1px rgba(99, 111, 164, 0.5); /* #53535396 */
+    margin-left: 3%;
+    margin-right: 3%;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.survay-question{
+    border-bottom:2px solid dodgerblue;
+    margin-bottom: 5px;
+}
+.survay-question p{
+    font-size: 16px;
+    font-weight: 500;
+}
+.survay-answer{
+    font-size: 16px;
+}
+.survay-answer input{
+    margin-right: 10px;
+}
+.form-submit-button-area{
+    display: flex;
+    justify-content: center;
+}

@@ -1,7 +1,7 @@
 
 .admin-login-container{
-    display: flex;
-    padding-top: 30px;
+    display: flex; 
+    padding-bottom: 30px; 
     justify-content: center;
     width: 25%;
     min-width: 300px;
@@ -28,6 +28,15 @@
 .login-form-header{
     font-size: 24px;
     font-weight: bold;
+}
+.admin-login-company-logo-area{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.admin-login-company-logo{
+    width: 150px;
+    height: 150px;
 }
 .login-form-input-container{
     margin-top: 30px;
@@ -80,4 +89,65 @@
 .login-form-button-icon{
     font-size: 28px;
     margin-left: 5px;
+}
+.login-error{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgb(173, 25, 25);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+}
+.login-error-icon{
+    color: rgb(173, 25, 25);
+    font-size: 24px;
+    margin-right: 5px;
+}
+.login-error-text{
+    color: rgb(173, 25, 25);
+    font-size: 16px;
+    font-weight: 600;
+}
+.empty-error{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgb(197, 71, 25);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 5px;
+}
+.empty-error-icon{
+    color: rgb(197, 71, 25);
+    font-size: 24px;
+    margin-right: 5px;
+}
+.empty-error-text{
+    color: rgb(197, 71, 25);
+    font-size: 16px;
+    font-weight: 600;
+}
+.success-login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgb(24, 116, 24);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 5px;
+}
+.success-login-icon{
+    color: rgb(24, 116, 24);
+    font-size: 24px;
+    margin-right: 5px;
+}
+.success-login-text{
+    color: rgb(24, 116, 24);
+    font-size: 16px;
+    font-weight: 600;
 }

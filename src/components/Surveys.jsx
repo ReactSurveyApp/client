@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { styled } from '@mui/material/styles';
 import { Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
 import axios from 'axios';
+import './styles/surveys.css'
 
 const Surveys = () => {
 
@@ -37,14 +40,19 @@ const Surveys = () => {
                 <TableCell align="center">{(survey.AnketDurumu)}</TableCell>
                 <TableCell align="center">{survey.Guid}</TableCell>
                 <TableCell className="">
-                  <Button className = "mr-2" variant="outlined" color="success">DETAY</Button>
-                  <Button className = "mr-2" variant="outlined" color="error">PASİF</Button>
+                  <Button className="mr-2" variant="outlined" color="success">DETAY</Button>
+                  <Button className="mr-2" variant="outlined" color="error">PASİF</Button>
                 </TableCell>
               </TableRow>
             ))}
           </TableBody>
         </Table>
       </TableContainer>
+      <div className='survays-list-pagination'>
+        <Stack spacing={2}>
+          <Pagination count={10} color="primary" />
+        </Stack>
+      </div>
     </div>
   )
 }

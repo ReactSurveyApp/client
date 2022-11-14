@@ -104,8 +104,10 @@ const Question = () => {
         <div className="survay-container">
             <div className="survay-header flex flex-col items-center">
                 <h1 >ANKET OLUŞTUR</h1>
-                <input
-                    className="mt-2 mb-1 p-3 border border-black border-solid rounded"
+            </div>
+            <div className='survay-name-area'>
+            <input
+                    className="survay-name-input"
                     type="text"
                     id="survey-name"
                     placeholder="Anket adını girin..."

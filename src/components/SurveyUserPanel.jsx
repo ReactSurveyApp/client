@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { IoSaveSharp } from "react-icons/io5";
+import './styles/survayuserpanel.css'
 import axios from 'axios'
 
 const SurveyUserPanel = () => {
@@ -66,39 +67,45 @@ const SurveyUserPanel = () => {
 
     console.log(survey)
     return (
-        <div>
-            {surveyName}
-            {survey.map((soru, index) => (
-
-                <div key={index} className="border-gray border-solid rounded mb-1 p-2">
-                    <h1>sorunun text : {soru.TextSoru}</h1>
-
-                    {answers.map((ans, index) => (
-                        ans.SoruID === soru.SoruID
-                            ?
-                            <div>
-                                <input type="radio" id={index} name={ans.SoruID} />
-                                <label>{ans.TextCevap}</label>
+        <div className='user-survay-container'>
+            <div className='survay-title-area'>
+                <h1 className='survay-title'>{surveyName}</h1>
+            </div>
+            <div className='survay-questions-container'>
+                <div className="survay-questions-area">
+                    {survey.map((soru, index) => (
+                        <div key={index} className="survay-question-and-answer-area">
+                            <div className='survay-question'>
+                                <p>{/* sorunun text: */} {index + 1 + ") "} {soru.TextSoru}</p>
                             </div>
+                            {answers.map((ans, index) => (
+                                ans.SoruID === soru.SoruID
+                                    ?
+                                    <div className='survay-answer'>
+                                        <input type="radio" id={index} name={ans.SoruID} />
+                                        <label>{ans.TextCevap}</label>
+                                    </div>
 
-                            : <span></span>
-                    ))}
+                                    : <span></span>
+                            ))}
+                        </div>
+                    )
+                    )}
                 </div>
-            )
-            )}
-
+            </div>
             <form onSubmit={postAnswers}>
-
-                <button
-                    type="submit"
-                    className="submit-button"
-                    id="btn-anket-kaydet"
-                    onClick={() => {
-                        saveAnswers();
-                    }}
-                >
-                    <IoSaveSharp className='submit-button-icon' />   Anketi Kaydet
-                </button>
+                <div className='form-submit-button-area'>
+                    <button
+                        type="submit"
+                        className="submit-button"
+                        id="btn-anket-kaydet"
+                        onClick={() => {
+                            saveAnswers();
+                        }}
+                    >
+                        <IoSaveSharp className='submit-button-icon' />   Anketi Kaydet
+                    </button>
+                </div>
             </form>
 
         </div>

@@ -5,6 +5,7 @@
     box-shadow: 2px 3px 3px 2px #53535360;
     margin-bottom: 40px;
 }
+
 .survay-header{
     display: flex;
     justify-content: center;
@@ -15,6 +16,24 @@
 .survay-header h1{
     font-size: 24px;
     font-weight: bold;
+}
+.survay-name-area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.survay-name-input{
+    border-bottom: 2px solid black;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 600;
+}
+.survay-name-input:focus{
+    outline: none;
+    border-bottom: 2px solid dodgerblue;
 }
 .new-question-area{
     box-shadow: 2px 0px 5px 1px rgba(99, 111, 164, 0.5); /* #53535396 */
