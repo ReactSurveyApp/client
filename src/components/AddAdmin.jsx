@@ -4,8 +4,8 @@ import './styles/addadmin.css'
 import { MdPersonAddAlt1,MdError,MdCheckCircle } from 'react-icons/md';
 import { FaUserAlt, FaLock, FaSave } from 'react-icons/fa';
 import { IoMail } from 'react-icons/io5';
-import Stack from '@mui/material/Stack';
-import CircularProgress from '@mui/material/CircularProgress';
+import Navbar from './Navbar';
+
 
 function AddAdmin() {
     const [emptyAreaError, setEmptyAreaError] = useState(false)
@@ -46,7 +46,9 @@ function AddAdmin() {
     }
 
     return (
-        <div className='create-admin-container'>
+        <>
+            <Navbar />
+            <div className='create-admin-container'>
             <div className='create-admin-form'>
                 <div className='admin-login-company-logo-area'>
                     <img src="/logo.png" alt="" className='admin-login-company-logo'/>
@@ -116,6 +118,8 @@ function AddAdmin() {
                 </div>
             </div>
         </div>
+        </>
+        
     );
 }
 

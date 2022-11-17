@@ -5,6 +5,7 @@ import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import axios from 'axios';
 import './styles/surveys.css'
+import Navbar from './Navbar';
 
 const Surveys = () => {
 
@@ -20,40 +21,43 @@ const Surveys = () => {
   }, [])
 
   return (
-    <div>
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              <TableCell>Anket Adı</TableCell>
-              <TableCell align="center" >Cevaplanma Sayısı</TableCell>
-              <TableCell align="center" >Durum</TableCell>
-              <TableCell align="center" >GUID</TableCell>
-              <TableCell align="center" >İşlemler</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {surveys.map((survey) => (
-              <TableRow key={survey.Guid} component="th" scope="row">
-                <TableCell>{survey.AnketAdi}</TableCell>
-                <TableCell align="center">{survey.AnketiYapanKullaniciSayisi}</TableCell>
-                <TableCell align="center">{(survey.AnketDurumu)}</TableCell>
-                <TableCell align="center">{survey.Guid}</TableCell>
-                <TableCell className="">
-                  <Button className="mr-2" variant="outlined" color="success">DETAY</Button>
-                  <Button className="mr-2" variant="outlined" color="error">PASİF</Button>
-                </TableCell>
+    <>
+      <Navbar />
+      <div className='surveys-container'>
+        <TableContainer component={Paper}>
+          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell>Anket Adı</TableCell>
+                <TableCell align="center" >Cevaplanma Sayısı</TableCell>
+                <TableCell align="center" >Durum</TableCell>
+                <TableCell align="center" >GUID</TableCell>
+                <TableCell align="center" >İşlemler</TableCell>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-      <div className='survays-list-pagination'>
-        <Stack spacing={2}>
-          <Pagination count={10} color="primary" />
-        </Stack>
+            </TableHead>
+            <TableBody>
+              {surveys.map((survey) => (
+                <TableRow key={survey.Guid} component="th" scope="row">
+                  <TableCell>{survey.AnketAdi}</TableCell>
+                  <TableCell align="center">{survey.AnketiYapanKullaniciSayisi}</TableCell>
+                  <TableCell align="center">{(survey.AnketDurumu)}</TableCell>
+                  <TableCell align="center">{survey.Guid}</TableCell>
+                  <TableCell className="">
+                    <Button className="mr-2" variant="outlined" color="success">DETAY</Button>
+                    <Button className="mr-2" variant="outlined" color="error">PASİF</Button>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+        <div className='survays-list-pagination'>
+          <Stack spacing={2}>
+            <Pagination count={10} color="primary" />
+          </Stack>
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 
