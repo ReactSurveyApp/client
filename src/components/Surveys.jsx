@@ -26,7 +26,7 @@ const Surveys = () => {
         url: url,
         guid: guid
       })
-    })
+    }) 
   }
 
   const fetchSurveys = async () => {
@@ -79,11 +79,6 @@ const Surveys = () => {
             </TableBody>
           </Table>
         </TableContainer>
-        <div className='survays-list-pagination'>
-          <Stack spacing={2}>
-            <Pagination count={10} color="primary" />
-          </Stack>
-        </div>
       </div>
     </>
   )

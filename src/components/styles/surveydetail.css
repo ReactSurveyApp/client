@@ -1,0 +1,51 @@
+.survey-detail-container{
+    width: 60%;
+    min-width: 350px;
+    background-color: white;
+    box-shadow: 2px 3px 3px 2px #53535360;
+    margin-bottom: 40px;
+    margin-top: 150px;
+}
+.survey-detail-title-area{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px !important;
+    border-bottom: 3px solid dodgerblue;
+    margin: 15px;
+    padding-bottom:10px;
+}
+.survey-detail-title{
+    font-size: 20px;
+    font-weight: bolder;
+}
+.survey-detail-area{
+    margin-top: 20px;
+    margin-bottom: 40px;
+    margin-left: 15px;
+    margin-right: 15px;
+    padding: 15px 20px 10px 10px;
+    box-shadow: rgba(30, 144, 255, 0.2) 0px 8px 24px;
+}
+.survey-detail-question-area{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding-left: 45px;
+    margin-top: 10px;
+}
+.survey-detail-question{
+    font-size: 16px;
+    font-weight: 500;
+}
+.survay-detail-answer-area{
+    padding-left: 50px;
+    margin-top: 10px;
+}
+.survay-detail-answer{
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+.survey-detail-chart{
+    margin-top: 10px;
+}

@@ -35,6 +35,12 @@ function UserSelect() {
             >
                 ANKETLER
             </Link>
+            <Link
+                className={"bg-blue-400 text-white p-2 rounded-lg mt-5"}
+                to="/anket-detay"
+            >
+                ANKET DETAY
+            </Link>
         </div>
     );
 }
