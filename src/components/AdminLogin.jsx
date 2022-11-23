@@ -1,4 +1,4 @@
-import React, {useCallback,useState} from 'react';
+import React, {useCallback,useState,useEffect} from 'react';
 import axios from 'axios';
 import './styles/adminlogin.css'
 import { MdAdminPanelSettings,MdError,MdCheckCircle } from 'react-icons/md';
@@ -16,6 +16,14 @@ function AdminLogin() {
     const [successLogin, setSuccessLogin] = useState(false);
     const navigate = useNavigate()
     const handleOnClick = useCallback(() => navigate('/user-select', {replace: true}), [navigate]);
+
+    useEffect(() => {
+        axios.get("http://localhost:8080/admin-login").then((response) => {
+          if (response.data.loggedIn == true) {
+            handleOnClick();
+          }
+        });
+      }, []);
 
     const sendLoginData = () => {
         let username = document.getElementById('username').value;

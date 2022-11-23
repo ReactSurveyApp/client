@@ -35,7 +35,6 @@ function UserSelect() {
             >
                 ANKETLER
             </Link>
-
         </div>
     );
 }
