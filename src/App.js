@@ -22,7 +22,7 @@ function App() {
                         <Route path="add-admin" element={<AddAdmin />} />
                         <Route path="user-select" element={<UserSelect />} />
                         <Route path="anket-listele" element={<Surveys />} />
-                        <Route path="anket-detay" element={<SurveyDetail />} />
+                        <Route path="anket-detay/*" element={<SurveyDetail />} />
                         <Route path="survey-input/*" element={<SurveyUserPanel />} />
                     </Routes>
                 </BrowserRouter>

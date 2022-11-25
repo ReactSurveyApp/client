@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import './styles/navbar.css'
 import { FaBars,FaTimes } from 'react-icons/fa';
+import {Link} from 'react-router-dom'
+
 const Navbar = () => {
     const [menuOpen, setMenuOpen]= useState(false) 
     const OpenCloseMenu = () => {
@@ -10,7 +12,7 @@ const Navbar = () => {
     <>
         <nav>
             <a href="/user-select">
-                <img src="./logo.png" alt="" />
+                <img src="https://i.hizliresim.com/clo9l14.png" alt="" />
             </a>
             <div>
                 <ul className={
@@ -20,11 +22,9 @@ const Navbar = () => {
                     :
                     "navbar"
                 }>
-                    <li><a href="/admin-panel" className='active-link'>ADMİN PANELE GİT</a></li>
-                    <li><a href="/user-panel">USER PANELE GİT</a></li>
-                    <li><a href="/add-admin">ADMİN EKLE</a></li>
-                    <li><a href="/add-login">ADMIN LOGİN</a></li>
-                    <li><a href="/anket-listele">ANKETLER</a></li>
+                    <li><Link to="/admin-panel">ANKET OLUŞTUR</Link></li>
+                    <li><Link to="/add-admin" >ADMİN EKLE</Link></li>
+                    <li><Link to="/anket-listele" >ANKETLER</Link></li>
                 </ul>
             </div>
             <div className="responsive">
