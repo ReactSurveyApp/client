@@ -75,7 +75,7 @@ const Surveys = () => {
                   <TableCell align="center">{survey.Guid}</TableCell>
                   <TableCell className="">
                     <Link
-                    to={"/anket-detay/" + survey.Guid}
+                    to={"/anket-detay/?guid=" + survey.Guid}
                       className="mr-2 shadow-md border border-green-300 text-green-600 p-2
                   hover:bg-gray-100 hover:border-green-600 transition duration-500 rounded"
                     >

@@ -23,6 +23,7 @@ const SurveyUserPanel = () => {
             })
             .catch(error => {
                 console.log(error);
+                
             })
 
     }
@@ -49,24 +50,14 @@ const SurveyUserPanel = () => {
             })
     }
 
-    const setChangeToAnswer = (e) => {
-
-        userInput.map((item) => {
-            if (item?.questionId === e.target.id) {
-                item.answerId = e.target.value
-            } else {
-                userInput.push({
-                    questionId: e.target.id,
-                    answerId: e.target.value
-                })
-            }
-        })
-
-        // setUserInput( [ ...userInput, {
-        //     questionId :e.target.name,
-        //     answerId : e.target.value
-        // }])
-        console.log(userInput)
+    const sendSelected = async () => {
+        await userInput.map((item) => (
+             axios.post('http://localhost:8080/save-selected', {
+                guid: surveyGuid,
+                questionId : item.questionId,
+                answerId : item.answerId
+             })
+        ))
     }
 
     useEffect(() => {
@@ -138,7 +129,7 @@ const SurveyUserPanel = () => {
                     className="submit-button"
                     id="btn-anket-kaydet"
                     onClick={() => {
-                        console.log((userInput))
+                        sendSelected();
                     }}
                 >
                     <IoSaveSharp className='submit-button-icon'/> Anketi Kaydet

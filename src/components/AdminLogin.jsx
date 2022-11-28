@@ -15,7 +15,7 @@ function AdminLogin() {
     const [emptyAreas, setEmptyAreas] = useState(false);
     const [successLogin, setSuccessLogin] = useState(false);
     const navigate = useNavigate()
-    const handleOnClick = useCallback(() => navigate('/user-select', {replace: true}), [navigate]);
+    const handleOnClick = useCallback(() => navigate('/anket-listele', {replace: true}), [navigate]);
 
     useEffect(() => {
         axios.get("http://localhost:8080/admin-login").then((response) => {
