@@ -6,10 +6,8 @@ import { FaUserAlt, FaLock } from 'react-icons/fa';
 import { IoLogInSharp } from 'react-icons/io5';
 import Stack from '@mui/material/Stack';
 import CircularProgress from '@mui/material/CircularProgress';
-import { Route } from 'react-router-dom';
-import Question from './Question';
-import UserSelect from './UserSelect';
 import {useNavigate} from 'react-router-dom';
+
 function AdminLogin() {
     const [loginError, setLoginError] = useState(false);
     const [emptyAreas, setEmptyAreas] = useState(false);
@@ -19,7 +17,7 @@ function AdminLogin() {
 
     useEffect(() => {
         axios.get("http://localhost:8080/admin-login").then((response) => {
-          if (response.data.loggedIn == true) {
+          if (response.data == true) {
             handleOnClick();
           }
         });

@@ -14,6 +14,7 @@ const SurveyDetail = () => {
   const [rerender, setRerender] = useState(true);
   const [answers, setAnswers] = useState([]);
   const [selecteds, setSelecteds] = useState([]);
+  
 
   useEffect(() => {
     const validateSurvey = async () => {
@@ -121,17 +122,15 @@ const SurveyDetail = () => {
                     categories: [""],
                   },
                 }}
-                series={[
-                  selecteds.map((selected) => (
-                    Number(selected.SoruID) === Number(soru.SoruID)
-                    ?
-                    {
-                      name : selected.CevapID,
-                      data: [45],
-                    }
-                    :
-                    console.log("set")
-                  ))
+                series= {[ {
+                  name : "Kararsızım",
+                  data: [45],  
+  
+                },
+                {
+                  name : "Evet",
+                  data: [55],
+                }
                 ]}
               />
             </div>

@@ -1,16 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import './styles/addadmin.css'
 import { MdPersonAddAlt1,MdError,MdCheckCircle } from 'react-icons/md';
 import { FaUserAlt, FaLock, FaSave } from 'react-icons/fa';
 import { IoMail } from 'react-icons/io5';
 import Navbar from './Navbar';
+import {useNavigate} from 'react-router-dom'
 
 
 function AddAdmin() {
     const [emptyAreaError, setEmptyAreaError] = useState(false)
     const [passwordError, setPasswordError] = useState(false)
     const [successAlert, setSuccessAlert] = useState(false)
+    const navigate = useNavigate()
+    const navigateToLogin = useCallback(() => navigate('/', {replace: true}), [navigate]);
+
+    useEffect(() => {
+        axios.get("http://localhost:8080/admin-login").then((response) => {
+          if (response.data == false) {
+            navigateToLogin()
+          }
+        });
+      }, []);
+
     const saveNewAdmin = () => {
 
         let username = document.getElementById('username').value;

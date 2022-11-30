@@ -1,16 +1,28 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import './styles/question.css'
 import { IoSaveSharp, IoAddCircleOutline, IoTrash } from "react-icons/io5";
 import { ImRadioChecked } from "react-icons/im";
 import Navbar from './Navbar';
+import {useNavigate} from 'react-router-dom';
+
 
 const Question = () => {
 
     const [questions, setQuestions] = useState([]);
     const [questionId, setQuestionId] = useState([String(Date.now())]);
     const [answerId, setAnswerId] = useState([String(Date.now() + 1)]);
+    const navigate = useNavigate()
+    const navigateToLogin = useCallback(() => navigate('/', {replace: true}), [navigate]);
+
+    useEffect(() => {
+        axios.get("http://localhost:8080/admin-login").then((response) => {
+          if (response.data == false) {
+            navigateToLogin()
+          }
+        });
+      }, []);
 
     const addQuestion = () => {
 
@@ -26,6 +38,7 @@ const Question = () => {
 
     }
 
+    
     const addAnswer = (questionId) => {
         setAnswerId([...answerId, String(Date.now())])
         const newAnswer = {
@@ -142,7 +155,7 @@ const Question = () => {
                                 {/* cevapları gösteren inputlar */}
                                 {question.answers.length !== 0 ? question.answers?.map((answer) => (
                                     <div key={answer.id}>
-                                        <div className='add-new-answer-area'>
+                                         <div className='add-new-answer-area'>
                                             <ImRadioChecked className='add-new-answer-radio-icon' />
                                             <input
                                                 placeholder="Cevap girin..."

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import {
   Button,
   Table,
@@ -14,10 +14,21 @@ import QRCode from "qrcode";
 import "./styles/surveys.css";
 import Navbar from "./Navbar";
 import { Link } from "react-router-dom";
+import {useNavigate} from 'react-router-dom'
 
 const Surveys = () => {
   const [surveys, setSurveys] = useState([]);
   const [qr, setQr] = useState({});
+  const navigate = useNavigate()
+  const navigateToLogin = useCallback(() => navigate('/', {replace: true}), [navigate]);
+
+  useEffect(() => {
+      axios.get("http://localhost:8080/admin-login").then((response) => {
+        if (response.data == false) {
+          navigateToLogin()
+        }
+      });
+    }, []);
 
   const GenerateQRCode = (url, guid) => {
     QRCode.toDataURL(
