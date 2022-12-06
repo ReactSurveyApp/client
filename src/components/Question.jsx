@@ -15,6 +15,7 @@ const Question = () => {
     const [answerId, setAnswerId] = useState([String(Date.now() + 1)]);
     const navigate = useNavigate()
     const navigateToLogin = useCallback(() => navigate('/', {replace: true}), [navigate]);
+    const navigateToSurveys = useCallback(() => navigate('/anket-listele', {replace: true}), [navigate]);
 
     useEffect(() => {
         axios.get("http://localhost:8080/admin-login").then((response) => {
@@ -56,19 +57,23 @@ const Question = () => {
         setQuestions(newQuestions);
     }
 
-    const deleteAnswer = (questionId, answerId) => {
+    const deleteAnswer = (questionId, answerIdParam) => {
         const newQuestions = questions.map((question) => {
             if (question.id === questionId) {
-                question.answers = question.answers.filter((answer) => answer.id !== answerId);
+                question.answers = question.answers.filter((answer) => answer.id !== answerIdParam);
             }
             return question;
         });
         setQuestions(newQuestions);
+        const newId = answerId.filter((item) => item !== answerIdParam);
+        setAnswerId(newId);
     }
 
-    const deleteQuestion = (questionId) => {
-        const newQuestions = questions.filter((question) => question.id !== questionId);
+    const deleteQuestion = (questionIdParameter) => {
+        const newQuestions = questions.filter((question) => question.id !== questionIdParameter);
         setQuestions(newQuestions);
+        const newId = questionId.filter((item) => item !== questionIdParameter);
+        setQuestionId(newId)
     }
 
     let questionsData = [];
@@ -76,20 +81,21 @@ const Question = () => {
 
         questionsData = questions;
 
+        console.log("data :   ", questionsData)
+        console.log(questions)
+
         try {
             let index2 = 0;
             questionsData.map((question, index) => {
-                console.log("soru idler : " + questionId[index])
+                console.log("soru idler : " + questionId[index ])
                 question.question = document.getElementById(questionId[index]).value;
                 question.answers?.map((answer) => {
                     console.log("cevap idler : " + answerId)
                     answer.answer = document.getElementById("answer-" + answerId[index2]).value;
                     index2++;
                 })
-
             })
 
-            console.log(questions)
         }
         catch (err) {
             console.log("HATA OLUŞTU. HATA MESAJI : " + err)
@@ -99,11 +105,6 @@ const Question = () => {
 
     async function postQuestionData(e) {
         e.preventDefault();
-        try {
-            await axios.post("http://localhost:8080/question_data", { questionsData });
-        } catch (err) {
-            console.error("HATA MESAJI : " + err.message);
-        }
         let surveyName = document.getElementById("survey-name").value;
 
         try {
@@ -112,6 +113,14 @@ const Question = () => {
         catch (err) {
             console.log("hata oluştu : " + err.message);
         }
+
+        try {
+            await axios.post("http://localhost:8080/question_data", { questionsData });
+            navigateToSurveys()
+        } catch (err) {
+            console.error("HATA MESAJI : " + err.message);
+        }
+        
     }
 
     return (

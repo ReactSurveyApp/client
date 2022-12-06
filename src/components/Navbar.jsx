@@ -43,14 +43,17 @@ const Navbar = () => {
             <li>
               <Link to="/anket-listele">ANKETLER</Link>
             </li>
+            
             {loginStatus ? (
+              
               <button 
-              className="border-2 border-red-300 text-m rounded shadow p-2 text-black font-semibold hover:border-red-600 transition duration-500 hover:bg-red-400 hover:text-white"
+              className="flex items-center justify-center border-2 border-red-200 text-m rounded shadow p-2 text-black font-semibold hover:border-red-400 transition duration-700 hover:bg-red-400 hover:text-white"
               onClick={() => {
                 logout()
                 handleOnClick()
               }}
               >
+                {<IoLogOut className=" mr-1 mt-[1px]"/>}
                 Çıkış Yap
               </button>
             ) : (

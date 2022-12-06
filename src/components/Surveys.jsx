@@ -80,7 +80,7 @@ const Surveys = () => {
                 <TableRow key={survey.Guid} component="th" scope="row">
                   <TableCell>{survey.AnketAdi}</TableCell>
                   <TableCell align="center">
-                    {survey.AnketiYapanKullaniciSayisi}
+                    {survey.AnketiYapanKullaniciSayisi / survey.SoruSayisi}
                   </TableCell>
                   <TableCell align="center">{survey.AnketDurumu}</TableCell>
                   <TableCell align="center">{survey.Guid}</TableCell>
@@ -93,7 +93,7 @@ const Surveys = () => {
                       DETAY
                     </Link>
                     <Button className="mr-2" variant="outlined" color="error">
-                      PASİF
+                      PASİF YAP
                     </Button>
                     <Button
                       className="mr-2 shadow-lg"
